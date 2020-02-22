@@ -1,4 +1,4 @@
-@extends('../../index');
+@extends('../../layouts/index')
 @section('content')
     @if(Session::has('message'))
     <div class="col-lg-12">

@@ -1,4 +1,4 @@
-@extends('../../index');
+@extends('../../layouts/index')
 @section('content')
     @if(Session::has('message'))
         <div class="col-lg-12">
@@ -28,21 +28,27 @@
                 </tr>
                 </thead>
                 <tbody>
+                @php
+                $count=1;
+                @endphp
                 @foreach($user_list as $user)
                     <tr class="table-success">
-                        <td>{{$user->id}}</td>
+                        <td>{{$count}}</td>
                         <td>{{$user->name}}</td>
                         <td>{{$user->role}}</td>
                         <td>{{$user->email}}</td>
                         <td>{{$user->mobile}}</td>
                         <td>{{$user->created_at->format('d M')}}</td>
-                        <td>{{$user->updated_at->format('d M ')}}</td>
+                        <td>{{$user->updated_at->format('d M')}}</td>
                         <td><div class="btn-group">
                                 <a class="btn btn-primary" href="#"><i class="fa fa-lg fa-edit"></i></a>
                                 <a class="btn btn-primary" href="#"><i class="fa fa-lg fa-trash"></i></a>
                             </div>
                         </td>
                     </tr>
+                    @php
+                    $count++;
+                    @endphp
                 @endforeach
                 </tbody>
             </table>

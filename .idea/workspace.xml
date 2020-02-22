@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5c9e0038-1692-4de2-85fa-e10a9dc7265e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/laravel-plugin.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/symfony2.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../sd/.gitignore" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../sd/.htaccess" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../sd/assets/admin/bower_components/Flot/.bower.json" afterDir="false" />
@@ -7817,6 +7819,19 @@
       <change afterPath="$PROJECT_DIR$/../sd/svg/500.svg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../sd/svg/503.svg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../sd/web.config" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/user/userAdd.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/user/userAdd.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/user/userList.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/user/userList.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -7830,7 +7845,7 @@
     </execution>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../sd" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -7933,6 +7948,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../sd" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -7944,13 +7960,13 @@
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\QToken\resources\views\admin" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\QToken\app\Http\Controllers\Admin" />
       <recent name="C:\xampp\htdocs\QToken\resources\views\admin" />
       <recent name="C:\xampp\htdocs\QToken\resources\views" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\QToken\resources\views\admin" />
     </key>
   </component>
   <component name="RunManager">
@@ -7987,6 +8003,15 @@
       <workItem from="1580791295420" duration="24392000" />
       <workItem from="1580883596865" duration="20439000" />
       <workItem from="1580964559586" duration="15168000" />
+      <workItem from="1581042273640" duration="1322000" />
+      <workItem from="1581410678998" duration="1291000" />
+      <workItem from="1581495289547" duration="9254000" />
+      <workItem from="1581606226935" duration="3799000" />
+      <workItem from="1581649050288" duration="9415000" />
+      <workItem from="1582347441936" duration="594000" />
+      <workItem from="1582348405158" duration="619000" />
+      <workItem from="1582353994985" duration="152000" />
+      <workItem from="1582354258877" duration="3000" />
     </task>
     <servers />
   </component>
@@ -7994,6 +8019,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="331" y="121" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1582347633168">
+      <screen x="0" y="0" width="1303" height="768" />
+    </state>
+    <state x="331" y="121" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1303.768@0.0.1303.768" timestamp="1582347633168" />
     <state x="381" y="140" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1580978555441">
       <screen x="0" y="0" width="1303" height="768" />
     </state>
@@ -8002,33 +8031,41 @@
       <screen x="0" y="0" width="1303" height="768" />
     </state>
     <state x="431" y="140" key="FileChooserDialogImpl/0.0.1303.768@0.0.1303.768" timestamp="1580808505128" />
-    <state width="1260" height="171" key="GridCell.Tab.0.bottom" timestamp="1580995412347">
+    <state width="1260" height="171" key="GridCell.Tab.0.bottom" timestamp="1582348945249">
       <screen x="0" y="0" width="1303" height="768" />
     </state>
-    <state width="1260" height="171" key="GridCell.Tab.0.bottom/0.0.1303.768@0.0.1303.768" timestamp="1580995412347" />
-    <state width="1260" height="171" key="GridCell.Tab.0.center" timestamp="1580995412347">
+    <state width="1260" height="171" key="GridCell.Tab.0.bottom/0.0.1303.768@0.0.1303.768" timestamp="1582348945249" />
+    <state width="1260" height="171" key="GridCell.Tab.0.center" timestamp="1582348945249">
       <screen x="0" y="0" width="1303" height="768" />
     </state>
-    <state width="1260" height="171" key="GridCell.Tab.0.center/0.0.1303.768@0.0.1303.768" timestamp="1580995412347" />
-    <state width="1260" height="171" key="GridCell.Tab.0.left" timestamp="1580995412347">
+    <state width="1260" height="171" key="GridCell.Tab.0.center/0.0.1303.768@0.0.1303.768" timestamp="1582348945249" />
+    <state width="1260" height="171" key="GridCell.Tab.0.left" timestamp="1582348945249">
       <screen x="0" y="0" width="1303" height="768" />
     </state>
-    <state width="1260" height="171" key="GridCell.Tab.0.left/0.0.1303.768@0.0.1303.768" timestamp="1580995412347" />
-    <state width="1260" height="171" key="GridCell.Tab.0.right" timestamp="1580995412347">
+    <state width="1260" height="171" key="GridCell.Tab.0.left/0.0.1303.768@0.0.1303.768" timestamp="1582348945249" />
+    <state width="1260" height="171" key="GridCell.Tab.0.right" timestamp="1582348945249">
       <screen x="0" y="0" width="1303" height="768" />
     </state>
-    <state width="1260" height="171" key="GridCell.Tab.0.right/0.0.1303.768@0.0.1303.768" timestamp="1580995412347" />
+    <state width="1260" height="171" key="GridCell.Tab.0.right/0.0.1303.768@0.0.1303.768" timestamp="1582348945249" />
     <state x="486" y="304" key="NewPhpFileDialog" timestamp="1580720175013">
       <screen x="0" y="0" width="1303" height="768" />
     </state>
     <state x="486" y="304" key="NewPhpFileDialog/0.0.1303.768@0.0.1303.768" timestamp="1580720175013" />
+    <state x="499" y="292" key="VCS.ChangelistChooser" timestamp="1581498213137">
+      <screen x="0" y="0" width="1303" height="768" />
+    </state>
+    <state x="499" y="292" key="VCS.ChangelistChooser/0.0.1303.768@0.0.1303.768" timestamp="1581498213137" />
+    <state x="210" y="0" width="1023" height="748" key="dock-window-1" timestamp="1581606468418">
+      <screen x="0" y="0" width="1303" height="768" />
+    </state>
+    <state x="210" y="0" width="1023" height="748" key="dock-window-1/0.0.1303.768@0.0.1303.768" timestamp="1581606468418" />
     <state x="308" y="172" key="run.anything.popup" timestamp="1580993709355">
       <screen x="0" y="0" width="1303" height="768" />
     </state>
     <state x="308" y="172" key="run.anything.popup/0.0.1303.768@0.0.1303.768" timestamp="1580993709355" />
-    <state x="314" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1580993712566">
+    <state x="314" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1581608245193">
       <screen x="0" y="0" width="1303" height="768" />
     </state>
-    <state x="314" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1303.768@0.0.1303.768" timestamp="1580993712566" />
+    <state x="314" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1303.768@0.0.1303.768" timestamp="1581608245193" />
   </component>
 </project>

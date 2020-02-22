@@ -1,4 +1,4 @@
-@extends('../index')
+@extends('../../layouts/index')
 @section('content')
     <div class="col-md-8">
         @if ($errors->any())
@@ -21,7 +21,7 @@
             </div>
         @endif
         <div class="tile">
-            <h3 class="tile-title">Register Department</h3>
+            <h3 class="tile-title">New User</h3>
             <div class="tile-body">
                 <form class="form-horizontal" action="{{route('user.store')}}" method="post" >
                     @csrf
