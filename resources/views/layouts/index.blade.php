@@ -111,12 +111,12 @@
                 <li><a class="treeview-item" href="{{route('counter.list')}}"><i class="icon fa fa-circle-o"></i> Counter List</a></li>
             </ul>
         </li>
-        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-edit"></i><span class="app-menu__label">Forms</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-edit"></i><span class="app-menu__label">Token</span><i class="treeview-indicator fa fa-angle-right"></i></a>
             <ul class="treeview-menu">
-                <li><a class="treeview-item" href="form-components.html"><i class="icon fa fa-circle-o"></i> Form Components</a></li>
-                <li><a class="treeview-item" href="form-custom.html"><i class="icon fa fa-circle-o"></i> Custom Components</a></li>
-                <li><a class="treeview-item" href="form-samples.html"><i class="icon fa fa-circle-o"></i> Form Samples</a></li>
-                <li><a class="treeview-item" href="form-notifications.html"><i class="icon fa fa-circle-o"></i> Form Notifications</a></li>
+                <li><a class="treeview-item" href="{{route('token.manual')}}"><i class="icon fa fa-circle-o"></i> Manual Token</a></li>
+                <li><a class="treeview-item" href="{{route('token.auto')}}"><i class="icon fa fa-circle-o"></i> Auto Token</a></li>
+                <li><a class="treeview-item" href="{{route('current.list')}}"><i class="icon fa fa-circle-o"></i> Current Token</a></li>
+                <li><a class="treeview-item" href="{{route('token.list')}}"><i class="icon fa fa-circle-o"></i> Token List</a></li>
             </ul>
         </li>
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa  fa-user"></i><span class="app-menu__label">User</span><i class="treeview-indicator fa fa-angle-right"></i></a>
@@ -151,6 +151,7 @@
 <!-- The javascript plugin to display page loading on top-->
 <script src="{{asset('js/plugins/pace.min.js')}}"></script>
 <!-- Page specific javascripts-->
+@yield('extraJs')
 <!-- Google analytics script-->
 <script type="text/javascript">
     if(document.location.hostname == 'pratikborsadiya.in') {

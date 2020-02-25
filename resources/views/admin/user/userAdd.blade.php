@@ -1,6 +1,6 @@
 @extends('../../layouts/index')
 @section('content')
-    <div class="col-md-8">
+    <div class="col-md-7">
         @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>
@@ -21,22 +21,22 @@
             </div>
         @endif
         <div class="tile">
-            <h3 class="tile-title">New User</h3>
+            <h3 class="tile-title">Add New User</h3>
             <div class="tile-body">
                 <form class="form-horizontal" action="{{route('user.store')}}" method="post" >
                     @csrf
                     <div class="form-group row">
                         <label class="control-label col-md-3">Full Name</label>
                         <div class="col-md-8">
-                            <input class="form-control" type="text" placeholder="Exp: A001" name="user_name">
+                            <input class="form-control" type="text" placeholder="User Name" name="user_name">
                         </div>
-                    </div>
+                    </div>&nbsp;
                     <div class="form-group row">
                         <label class="control-label col-md-3">Email</label>
                         <div class="col-md-8">
-                            <input class="form-control" type="email" placeholder="Exp: A001" name="user_email">
+                            <input class="form-control" type="email" placeholder="User Email" name="user_email">
                         </div>
-                    </div>
+                    </div>&nbsp;
                     <div class="form-group row">
                         <label class="control-label col-md-3">Mobile No:</label>
                         <div class="col-md-8">
@@ -45,14 +45,14 @@
                                 <input class="form-control" id="exampleInputAmount" type="text" placeholder="Amount" name="user_mobile">
                             </div>
                         </div>
-                    </div>
+                    </div>&nbsp;
 
                     <div class="form-group row">
                             <label class="control-label col-md-3" for="exampleInputPassword1">Password</label>
                         <div class="col-md-8">
                             <input class="form-control" id="exampleInputPassword1" type="password" placeholder="Enter Password" name="user_password">
                         </div>
-                    </div>
+                    </div>&nbsp;
 
                     <div class="form-group row">
                             <label class="control-label col-md-3" for="exampleSelect1">User Type</label>
@@ -63,11 +63,11 @@
                                 <option value="staff">Staff</option>
                             </select>
                         </div>
-                    </div>
+                    </div>&nbsp;
                     <div class="tile-footer">
                         <div class="row">
                             <div class="col-md-8 col-md-offset-3">
-                                <button class="btn btn-primary" type="submit"><i class="fa fa-fw fa-lg fa-check-circle"></i>Add Counter</button>&nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-secondary" href="#"><i class="fa fa-fw fa-lg fa-times-circle"></i>Cancel</a>
+                                <button class="btn btn-primary" type="submit"><i class="fa fa-fw fa-lg fa-check-circle"></i>Add User</button>&nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-secondary" type="resete" href="#"><i class="fa fa-fw fa-lg fa-times-circle"></i>Cancel</a>
                             </div>
                         </div>
                     </div>

@@ -5293,9 +5293,9 @@ input[type="button"].btn-block {
 .badge {
   display: inline-block;
   padding: 0.25em 0.4em;
-  font-size: 75%;
-  font-weight: 700;
-  line-height: 1;
+  font-size: 95%;
+  font-weight: 850;
+  line-height: 2;
   text-align: center;
   white-space: nowrap;
   vertical-align: baseline;
@@ -16021,7 +16021,7 @@ be a descendant of the grid when it is being dragged.
   display: flex;
   border-radius: 4px;
   color: #FFF;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
           box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
 }
@@ -16030,24 +16030,24 @@ be a descendant of the grid when it is being dragged.
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  min-width: 85px;
+  min-width: 55px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  padding: 20px;
+  padding: 15px;
   background-color: rgba(0, 0, 0, 0.2);
-  border-radius: 4px 0 0 4px;
-  font-size: 2.5rem;
+  border-radius: 2px 0 0 2px;
+  font-size: 3rem;
 }
 
 .widget-small .info {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  padding: 0 20px;
+  padding: 0 15px;
   -ms-flex-item-align: center;
       align-self: center;
 }

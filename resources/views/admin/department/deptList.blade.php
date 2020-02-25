@@ -43,7 +43,7 @@
                     <td>{{$dept->updated_at->format('d M ')}}</td>
                     <td><div class="btn-group">
                             <a class="btn btn-primary" href="{{route('edit.dept',['id'=>$dept->id])}}"><i class="fa fa-lg fa-edit"></i></a>
-                            <a class="btn btn-primary" href="{{route('delete.dept',['id'=>$dept->id])}}"><i class="fa fa-lg fa-trash"></i></a>
+                            <a class="btn btn-danger" href="{{route('delete.dept',['id'=>$dept->id])}}"><i class="fa fa-lg fa-trash"></i></a>
                         </div>
                     </td>
                 </tr>

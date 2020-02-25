@@ -58,8 +58,8 @@ class DeptController extends Controller
     public function delete(Request $request){
         $dept=Department::find($request->id);
         if($dept->delete()){
-            return redirect()->route('list.dept')->with('message','Department deleted successfully');
+            return redirect()->back()->with('message','Department deleted successfully');
         }
-        return redirect()-route('list.dept')->with('message','Error occurred');
+        return redirect()-back()->with('message','Error occurred');
     }
 }
