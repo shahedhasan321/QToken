@@ -1,5 +1,15 @@
-@extends('../layouts/index')
+@extends('../layouts/admin')
 @section('content')
+<div class="app-title">
+    <div>
+        <h1><i class="fa fa-dashboard"></i> Token List</h1>
+        <p>Total Number of token including their information</p>
+    </div>
+    <ul class="app-breadcrumb breadcrumb">
+        <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
+        <li class="breadcrumb-item"><a href="#">Token /  TokenList</a></li>
+    </ul>
+    </div>
     @if(Session::has('message'))
         <div class="col-lg-12">
             <div class="bs-component">
@@ -69,7 +79,8 @@
         </div>
         </div>
     </div>
-    <div class="clearfix"></div>
+</div>
+<div class="clearfix"></div>
 @endsection
 
 @section('extraJs')

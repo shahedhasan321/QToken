@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use Illuminate\Support\Facades\Auth;
 use App\Token;
 use App\Counter;
 use App\Department;
@@ -37,15 +39,34 @@ class HomeController extends Controller
         $this->counter=Counter::count();
         $this->dept=Department::count();
         $this->user=User::count();
-        return view('home',['token'=>$this->token,'pending_token'=>$this->pending_token,'counter'=>$this->counter,'department'=>$this->dept,'user'=>$this->user]);
+        return view('admin.home',['token'=>$this->token,'pending_token'=>$this->pending_token,'counter'=>$this->counter,'department'=>$this->dept,'user'=>$this->user]);
         }
 
-    public function index()
+    public function adminIndex()
     {
-        $widgetsObj=new HomeController();
-        return $widgetsObj->widgets();
-        //return view('home',['token'=>$this->token,'pending_token'=>$this->pending_token,'counter'=>$this->counter,'department'=>$this->dept,'user'=>$this->user]);
+        if(Auth::user()->role == 'admin'){
+            $widgetsObj=new HomeController();
+            return $widgetsObj->widgets();
+        }
+
+        elseif(Auth::user()->role == 'officer'){
+            return view('officer.home');
+        }
+
+        elseif(Auth::user()->role == 'staff'){
+            return view('staff.home');
+        }
     }
+
+    /*public function officerIndex()
+    {
+        return view('officer.home');
+    }
+
+    public function staffIndex()
+    {
+        return view('staff.home');
+    }*/
 
 
 }

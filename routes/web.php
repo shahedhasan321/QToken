@@ -20,6 +20,7 @@ Route::get('/login', function () {
 Route::middleware(['auth'])->group(function () {
 
     Route::middleware(['admin'])->group(function () {
+
         Route::get('/', function () {
             return redirect('home');
         });
@@ -61,7 +62,21 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/delete','TokenController@tokenDelete')->name('token.delete');
     });
 
+    Route::middleware(['officer'])->group(function () {
+        Route::get('/', function () {
+            return redirect('home');
+        });
+    });
+
+    Route::middleware(['staff'])->group(function () {
+        Route::get('/', function () {
+            return redirect('home');
+        });
+    });
+
 });
 Auth::routes(['register' => false]);
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@adminIndex')->name('home');
+//Route::get('/officer/home', 'HomeController@officerIndex')->name('officer');
+//Route::get('/staff/home', 'HomeController@staffIndex')->name('staff');

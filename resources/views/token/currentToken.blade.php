@@ -1,5 +1,15 @@
-@extends('../layouts/index')
+@extends('../layouts/admin')
 @section('content')
+<div class="app-title">
+    <div>
+        <h1><i class="fa fa-dashboard"></i> Token List</h1>
+        <p>Total Number of token including their information</p>
+    </div>
+    <ul class="app-breadcrumb breadcrumb">
+        <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
+        <li class="breadcrumb-item"><a href="#">Token /  TokenList</a></li>
+    </ul>
+    </div>
     @if(Session::has('message'))
         <div class="col-lg-12">
             <div class="bs-component">
@@ -12,7 +22,7 @@
     @endif
     <div class="col-md-12">
         <div class="tile">
-            <h3 class="tile-title">Token List</h3>
+            <h3 class="tile-title">Current Token List</h3>
             <div class="table-responsive">
             <table class="table">
                 <thead>
@@ -25,7 +35,6 @@
                     <th>Client Mobile No</th>
                     <th>Token Status</th>
                     <th>Created_At</th>
-                    <th>Updated_At</th>
                     &nbsp;&nbsp;
                     <th>Action</th>
                 </tr>
@@ -45,16 +54,9 @@
                         <td>
                             @if($token->status=='pending')
                                  <span class="badge badge-pill badge-warning">{{$token->status}}</span>
-                            @elseif($token->status=='complete')
-                                 <span class="badge badge-pill badge-success">{{$token->status}}</span>
                             @endif
                         </td>
                         <td>{{$token->created_at->format('d M')}}<br>{{$token->created_at->format('h:i a')}}</td>
-                            @if($token->status!='pending')
-                            <td>{{$token->created_at->format('d M')}}<br>{{$token->updated_at->format('h:i a')}}</td>
-                            @else
-                            <td></td>
-                            @endif
                         <td><div class="btn-group">
                                 <a class="btn btn-sm btn-primary" type="button" data-toggle="tooltip" data-placement="top" title="" data-original-title="Complete" href="{{route('token.complete',['id'=>$token->id])}}"><i class="fa fa-lg fa-check"></i></a>
                                 <a class="btn btn-sm btn-secondary" type="button" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Stop" href="#"><i class="fa fa-lg fa-stop"></i></a>
@@ -70,5 +72,6 @@
         </div>
         </div>
     </div>
+</div>
     <div class="clearfix"></div>
 @endsection

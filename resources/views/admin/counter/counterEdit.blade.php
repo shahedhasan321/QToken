@@ -1,4 +1,4 @@
-@extends('../../layouts/index')
+@extends('../../layouts/admin')
 @section('content')
     <div class="col-md-6">
         @if ($errors->any())

@@ -14,7 +14,6 @@
     <section class="material-half-bg">
       <div class="cover"></div>
     </section>
-    
     @yield('content')
     <!-- Essential javascripts for application to work-->
     <script src="{{asset('js/jquery-3.3.1.min.js')}}"></script>
