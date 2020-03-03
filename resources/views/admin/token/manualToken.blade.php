@@ -1,4 +1,5 @@
 @extends('../layouts/admin')
+
 @section('content')
 <div class="app-title">
     <div>
@@ -33,7 +34,7 @@
         <div class="tile">
             <h3 class="tile-title">Create New Token</h3>
             <div class="tile-body">
-                <form class="form-horizontal" action="{{route('token.store' )}}" method="post" >
+                <form class="form-horizontal" action="{{route('store' )}}" method="post" >
                     @csrf
                     <div class="form-group row">
                         <label class="control-label col-md-3">Name</label>

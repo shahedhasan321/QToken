@@ -42,7 +42,7 @@ class HomeController extends Controller
         return view('admin.home',['token'=>$this->token,'pending_token'=>$this->pending_token,'counter'=>$this->counter,'department'=>$this->dept,'user'=>$this->user]);
         }
 
-    public function adminIndex()
+    public function index()
     {
         if(Auth::user()->role == 'admin'){
             $widgetsObj=new HomeController();

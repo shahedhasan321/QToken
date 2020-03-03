@@ -6,15 +6,23 @@ use App\Client;
 use App\Counter;
 use App\Department;
 use App\Token;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TokenController extends Controller
 {
     public function manualToken(){
         $department=Department::where('status','active')->get();
         $counter=Counter::where('status','active')->get();
-        return view('Token.manualToken',["dept"=>$department,"counter"=>$counter]);
+        if(Auth::user()->role=='admin')
+            return view('admin.token.manualToken',["dept"=>$department,"counter"=>$counter]);
+
+        elseif(Auth::user()->role=='staff')
+            return view('staff.manualToken',["dept"=>$department,"counter"=>$counter]);
+
     }
+
     public function autoToken(){
         return view('Token.autoToken');
     }
@@ -48,18 +56,33 @@ class TokenController extends Controller
             if($token->save()){
                 $token->token_no="$token->id"."$token->dept_id"."$token->counter_no"."$token->client_id";
                 $token->update();
-              return redirect()->route("token.list");
+                return redirect()->back()->with('message','Token Added successfully');
             }
+            return redirect()-back()->with('message','Error occurred');
     }
 
     public function tokenList(){
         $token =Token::all()->sortByDesc('created_at');
-        return view('Token.tokenList',["token_list"=>$token]);
+
+        if(Auth::user()->role=='admin')
+            return view('admin.token.tokenList',["token_list"=>$token]);
+
+        elseif(Auth::user()->role=='officer')
+            return view('officer.tokenList',["token_list"=>$token]);
     }
+
 
     public function currentList(){
         $token =Token::all()->where('status','pending')->sortByDesc('created_at');
-        return view('Token.currentToken',["token_list"=>$token]);
+
+        if(Auth::user()->role=='admin')
+            return view('admin.token.currentToken',["token_list"=>$token]);
+
+        elseif(Auth::user()->role=='officer')
+            return view('officer.currentToken',["token_list"=>$token]);
+
+        elseif(Auth::user()->role=='staff')
+            return view('staff.currentToken',["token_list"=>$token]);
     }
 
 
@@ -81,4 +104,10 @@ class TokenController extends Controller
         }
         return redirect()-back()->with('message','Error occurred');
     }
+
+    public function callToken(){
+        $token=Token::where('status','pending')->first();
+        return view('Officer.tokenProcess',["token"=>$token]);
+    }
+
 }

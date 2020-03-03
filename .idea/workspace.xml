@@ -7817,9 +7817,17 @@
       <change afterPath="$PROJECT_DIR$/../sd/svg/500.svg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../sd/svg/503.svg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../sd/web.config" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/token/currentToken.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/token/currentToken.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TokenController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TokenController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/officer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/officer.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/officer/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/officer/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/staff/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/staff/home.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/token/manualToken.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/token/manualToken.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/token/tokenList.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/token/tokenList.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -8007,6 +8015,7 @@
       <workItem from="1582353994985" duration="152000" />
       <workItem from="1582354258877" duration="3000" />
       <workItem from="1582640866011" duration="626000" />
+      <workItem from="1583226793252" duration="615000" />
     </task>
     <servers />
   </component>

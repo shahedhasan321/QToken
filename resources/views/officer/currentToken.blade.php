@@ -1,4 +1,4 @@
-@extends('../layouts/admin')
+@extends('../layouts/officer')
 @section('content')
 <div class="app-title">
     <div>
@@ -35,8 +35,6 @@
                     <th>Client Mobile No</th>
                     <th>Token Status</th>
                     <th>Created_At</th>
-                    &nbsp;&nbsp;
-                    <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -57,11 +55,6 @@
                             @endif
                         </td>
                         <td>{{$token->created_at->format('d M')}}<br>{{$token->created_at->format('h:i a')}}</td>
-                        <td><div class="btn-group">
-                                <a class="btn btn-sm btn-primary" type="button" data-toggle="tooltip" data-placement="top" title="" data-original-title="Complete" href="{{route('token.complete',['id'=>$token->id])}}"><i class="fa fa-lg fa-check"></i></a>
-                                <a class="btn btn-sm btn-secondary" type="button" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Stop" href="#"><i class="fa fa-lg fa-stop"></i></a>
-                            </div>
-                        </td>
                     </tr>
                     @php
                     $count++;

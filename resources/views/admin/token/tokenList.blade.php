@@ -66,7 +66,7 @@
                             <td></td>
                             @endif
                         <td><div class="btn-group">
-                                <a class="btn btn-sm btn-danger" type="button" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" href="{{route('token.delete',['id'=>$token->id])}}"><i class="fa fa-lg fa-trash"></i></a>
+                                <a class="btn btn-sm btn-danger" type="button" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" href="{{route('delete',['id'=>$token->id])}}"><i class="fa fa-lg fa-trash"></i></a>
                             </div>
                         </td>
                     </tr>
