@@ -49,7 +49,7 @@ Route::middleware(['auth'])->group(function () {
 
         Route::prefix('token')->group(function () {
             Route::get('/list', 'TokenController@tokenList')->name('list');
-            Route::get('/complete', 'TokenController@tokenComplete')->name('complete');
+            Route::get('/complete', 'TokenController@tokenStatusUpdate')->name('status');
             Route::get('/delete', 'TokenController@tokenDelete')->name('delete');
             Route::get('/manual', 'TokenController@manualToken')->name('manual');
             Route::get('/auto', 'TokenController@autoToken')->name('auto');
@@ -63,7 +63,7 @@ Route::middleware(['auth'])->group(function () {
         Route::middleware(['officer'])->group(function () {
             Route::prefix('token')->group(function () {
                 Route::get('/list', 'TokenController@tokenList')->name('token.list');
-                Route::get('/complete', 'TokenController@tokenComplete')->name('token.complete');
+                Route::get('/complete', 'TokenController@tokenStatusUpdate')->name('token.status');
                 Route::get('/delete', 'TokenController@tokenDelete')->name('token.delete');
                 Route::get('/processing','TokenController@callToken')->name('token.process');
 
@@ -73,7 +73,6 @@ Route::middleware(['auth'])->group(function () {
 
         Route::middleware(['staff'])->group(function () {
             Route::prefix('token')->group(function () {
-                Route::get('/manual', 'TokenController@manualToken')->name('token.manual');
                 Route::get('/auto', 'TokenController@autoToken')->name('token.auto');
                 Route::post('/store', 'TokenController@storeToken')->name('token.store');
             });
@@ -81,6 +80,7 @@ Route::middleware(['auth'])->group(function () {
 
 
         Route::get('/token/current/list', 'TokenController@currentList')->name('current.list');
+        Route::get('/display','Admin\DisplayController@index')->name('token.display');
 });
 
 Auth::routes(['register' => false]);

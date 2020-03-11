@@ -3206,6 +3206,14 @@ fieldset:disabled a.btn {
   border-radius: 3px;
 }
 
+.btn-ex-lg, .btn-group-lg > .btn {
+    padding: 0.5rem 1rem;
+    font-size: 1.89375rem;
+    line-height: 1.5;
+    border-radius: 1px;
+    width: 250px
+  }
+
 .btn-sm, .btn-group-sm > .btn {
   padding: 0.25rem 0.5rem;
   font-size: 0.765625rem;
@@ -14862,11 +14870,22 @@ be a descendant of the grid when it is being dragged.
   }
 }
 
+.app-display{
+
+    min-height: calc(100vh - 50px);
+    margin-top: 40px;
+    padding: 20px;
+    background-color: rgb(2, 47, 68);
+    -webkit-transition: margin-left 0.3s ease;
+    -o-transition: margin-left 0.3s ease;
+    transition: margin-left 0.3s ease;
+
+}
 .app-content {
   min-height: calc(100vh - 50px);
   margin-top: 50px;
   padding: 30px;
-  background-color: #E5E5E5;
+  background-color: rgb(200, 224, 224);
   -webkit-transition: margin-left 0.3s ease;
   -o-transition: margin-left 0.3s ease;
   transition: margin-left 0.3s ease;

@@ -24,7 +24,7 @@
         <div class="tile">
             <h3 class="tile-title">Current Token List</h3>
             <div class="table-responsive">
-            <table class="table">
+            <table class="table" style="text-align:center">
                 <thead>
                 <tr>
                     <th>ID</th>
@@ -58,8 +58,9 @@
                         </td>
                         <td>{{$token->created_at->format('d M')}}<br>{{$token->created_at->format('h:i a')}}</td>
                         <td><div class="btn-group">
-                                <a class="btn btn-sm btn-primary" type="button" data-toggle="tooltip" data-placement="top" title="" data-original-title="Complete" href="{{route('complete',['id'=>$token->id])}}"><i class="fa fa-lg fa-check"></i></a>
-                                <a class="btn btn-sm btn-secondary" type="button" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Stop" href="#"><i class="fa fa-lg fa-stop"></i></a>
+                                <a class="btn btn-sm btn-danger" type="button" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Start" href="{{route('status',['id'=>$token->id,'status'=>'in-process'])}}"><i class="fa fa-lg fa-play"></i></a>
+                                <a class="btn btn-sm btn-primary" type="button" data-toggle="tooltip" data-placement="top" title="" data-original-title="Complete" href="{{route('status',['id'=>$token->id,'status'=>'complete'])}}"><i class="fa fa-lg fa-check"></i></a>
+                                <a class="btn btn-sm btn-secondary" type="button" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Stop" href="{{route('status',['id'=>$token->id,'status'=>'stop'])}}"><i class="fa fa-lg fa-stop"></i></a>
                             </div>
                         </td>
                     </tr>

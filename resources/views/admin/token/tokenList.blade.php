@@ -52,20 +52,24 @@
                         <td>{{$token->counter->counter_no}}</td>
                         <td>{{$token->client->name}}</td>
                         <td>{{$token->client->phone}}</td>
-                        <td>
+                        <td style="text-align:center">
                             @if($token->status=='pending')
                                  <span class="badge badge-pill badge-warning">{{$token->status}}</span>
                             @elseif($token->status=='complete')
                                  <span class="badge badge-pill badge-success">{{$token->status}}</span>
+                            @elseif($token->status=='in-process')
+                                 <span class="badge badge-pill badge-danger">{{$token->status}}</span>
+                            @elseif($token->status=='stop')
+                                 <span class="badge badge-pill badge-secondary">{{$token->status}}</span>
                             @endif
                         </td>
                         <td>{{$token->created_at->format('d M')}}<br>{{$token->created_at->format('h:i a')}}</td>
-                            @if($token->status!='pending')
+                            @if($token->status!='pending' && $token->status!='in-process')
                             <td>{{$token->created_at->format('d M')}}<br>{{$token->updated_at->format('h:i a')}}</td>
                             @else
                             <td></td>
                             @endif
-                        <td><div class="btn-group">
+                        <td style="text-align:center"><div class="btn-group">
                                 <a class="btn btn-sm btn-danger" type="button" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" href="{{route('delete',['id'=>$token->id])}}"><i class="fa fa-lg fa-trash"></i></a>
                             </div>
                         </td>

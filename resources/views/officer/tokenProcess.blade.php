@@ -34,10 +34,10 @@
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<hr>
 
             <div class="bs-component" >
-                <button class="btn btn-primary btn-lg" type="button" style="margin:5px; width: 140px"><i class="fa fa-play-circle" aria-hidden="true"></i>Start</button>
-                <button class="btn btn-success btn-lg" type="button" style="margin:5px; width: 140px"><i class="fa fa-check" aria-hidden="true"></i>Complete</button>
-                <button class="btn btn-secondary btn-lg" type="button" style="margin:5px; width: 140px"><i class="fa fa-stop-circle" aria-hidden="true"></i>Stop</button>
-                <button class="btn btn-info btn-lg" type="button" style="margin:5px; width: 140px"><i class="fa fa-google-wallet" aria-hidden="true"></i>Recall</button>
+                <a class="btn btn-primary btn-lg" type="button" style="margin:5px; width: 140px" href="{{route('token.status',['id'=>$token->id,'status'=>'in-process'])}}"><i class="fa fa-play-circle" aria-hidden="true"></i>Start</a>
+                <a class="btn btn-success btn-lg" type="button" style="margin:5px; width: 140px" href="{{route('token.status',['id'=>$token->id,'status'=>'complete'])}}"><i class="fa fa-check" aria-hidden="true"></i>Complete</a>
+                <a class="btn btn-secondary btn-lg" type="button" style="margin:5px; width: 140px" href="{{route('token.status',['id'=>$token->id,'status'=>'stop'])}}"><i class="fa fa-stop-circle" aria-hidden="true"></i>Stop</a>
+                <a class="btn btn-info btn-lg" type="button" style="margin:5px; width: 140px" href="{{route('token.process')}}"><i class="fa fa-google-wallet" aria-hidden="true"></i>Call Token</a>
               </div>
         </div>
     </div>

@@ -39,22 +39,24 @@ class HomeController extends Controller
         $this->counter=Counter::count();
         $this->dept=Department::count();
         $this->user=User::count();
-        return view('admin.home',['token'=>$this->token,'pending_token'=>$this->pending_token,'counter'=>$this->counter,'department'=>$this->dept,'user'=>$this->user]);
+        return view('admin.home',['token'=>$this->token,'pending_token'=>$this->pending_token,'counter'=>$this->counter,'department'=>$this->dept,'user'=>$this->user,'title'=>'Dashboard']);
         }
 
     public function index()
     {
+        $this->counter=Counter::all();
+        $this->dept=Department::all();
         if(Auth::user()->role == 'admin'){
             $widgetsObj=new HomeController();
             return $widgetsObj->widgets();
         }
 
         elseif(Auth::user()->role == 'officer'){
-            return view('officer.home');
+            return view('officer.home',['title'=>'Home Page']);
         }
 
         elseif(Auth::user()->role == 'staff'){
-            return view('staff.home');
+            return view('staff.home',['counter'=>$this->counter,'department'=>$this->dept,'title'=>'Home Page']);
         }
     }
 

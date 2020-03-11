@@ -24,7 +24,7 @@
 </head>
 <body class="app sidebar-mini">
 <!-- Navbar-->
-<header class="app-header"><a class="app-header__logo" href="index.html">QueueT</a>
+<header class="app-header"><a class="app-header__logo" href="{{route('home')}}">QueueT</a>
     <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
     <!-- Navbar Right Menu-->
     <ul class="app-nav">
@@ -137,7 +137,7 @@
                 <li><a class="treeview-item" href="page-error.html"><i class="icon fa fa-circle-o"></i> Error Page</a></li>
             </ul>
         </li>
-        <li><a class="app-menu__item" href="docs.html"><i class="app-menu__icon fa fa-file-code-o"></i><span class="app-menu__label">Docs</span></a></li>
+        <li><a class="app-menu__item" href="{{route('token.display')}}"><i class="app-menu__icon fa fa-file-code-o"></i><span class="app-menu__label">Diaplay</span></a></li>
     </ul>
 </aside>
 

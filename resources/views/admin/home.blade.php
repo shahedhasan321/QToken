@@ -3,12 +3,11 @@
 @section('content')
 <div class="app-title">
     <div>
-      <h1><i class="fa fa-dashboard"></i> Dashboard</h1>
-      <p>A free and open source Bootstrap 4 admin template</p>
+      <h1><i class="fa fa-dashboard"></i> {{$title}}</h1>
     </div>
     <ul class="app-breadcrumb breadcrumb">
       <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-      <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+      <li class="breadcrumb-item"><a href="#">{{ Auth::user()->role }} /  {{$title}}</a></li>
     </ul>
   </div>
   <div class="row">
