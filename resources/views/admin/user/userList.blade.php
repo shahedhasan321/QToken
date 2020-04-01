@@ -1,5 +1,14 @@
 @extends('../../layouts/admin')
 @section('content')
+<div class="app-title">
+    <div>
+        <h1><i class="fa fa-dashboard"></i>User</h1>
+    </div>
+    <ul class="app-breadcrumb breadcrumb">
+        <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
+        <li class="breadcrumb-item"><a href="#">{{ Auth::user()->role }} /  User List</a></li>
+    </ul>
+    </div>
     @if(Session::has('message'))
         <div class="col-lg-12">
             <div class="bs-component">
@@ -42,7 +51,7 @@
                         <td>{{$user->updated_at->format('d M')}}</td>
                         <td><div class="btn-group">
                                 <a class="btn btn-primary" href="#"><i class="fa fa-lg fa-edit"></i></a>
-                                <a class="btn btn-primary" href="#"><i class="fa fa-lg fa-trash"></i></a>
+                                <a class="btn btn-danger" href="#"><i class="fa fa-lg fa-trash"></i></a>
                             </div>
                         </td>
                     </tr>
@@ -55,5 +64,6 @@
         </div>
         </div>
     </div>
+</div>
     <div class="clearfix"></div>
 @endsection

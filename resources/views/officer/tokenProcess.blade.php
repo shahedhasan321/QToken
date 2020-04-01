@@ -13,14 +13,24 @@
 </div>
 <div class="col-md-12">
     <div class="tile">
-        <h3 class="tile-title">Token Process</h3><hr>
+        <div class="row">
+            <div class="col-md-8">
+                <h3 class="tile-title">Token Process</h3>
+            </div>
+            <div class=" row col-md-4">
+                <h4>Processing Time: </h4>&nbsp;&nbsp;&nbsp;&nbsp;
+                <h4 id="demo">0</h4>&nbsp;&nbsp;
+                <h4>Sec</h4>
+
+            </div>
+        </div><hr>
         <div class="row">
         <div class="col-md-3" >
             <h3>Token No.</h3>&nbsp;&nbsp;&nbsp;&nbsp;
             <div class="card mb-3 text-white bg-primary" style="text-align:center; margin-right:20px">
                 <div class="card-body">
                 <blockquote class="card-blockquote">
-                    <h2 style="font-size: 60px;">{{$token->token_no}}</h2>
+                    <h2 style="font-size: 50px;">{{$token->token_no}}</h2>
                 </blockquote>
                 </div>
             </div>
@@ -34,13 +44,28 @@
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<hr>
 
             <div class="bs-component" >
-                <a class="btn btn-primary btn-lg" type="button" style="margin:5px; width: 140px" href="{{route('token.status',['id'=>$token->id,'status'=>'in-process'])}}"><i class="fa fa-play-circle" aria-hidden="true"></i>Start</a>
+                <a class="btn btn-primary btn-lg" type="button" style="margin:5px; width: 140px" onclick="clock(); document.getElementById('demo').innerHTML='0';"><i class="fa fa-play-circle" aria-hidden="true"></i>Start</a>
+                <a class="btn btn-secondary btn-lg" type="button" style="margin:5px; width: 140px" onclick="clearInterval(myTimer);"><i class="fa fa-stop-circle" aria-hidden="true"></i>Stop</a>
                 <a class="btn btn-success btn-lg" type="button" style="margin:5px; width: 140px" href="{{route('token.status',['id'=>$token->id,'status'=>'complete'])}}"><i class="fa fa-check" aria-hidden="true"></i>Complete</a>
-                <a class="btn btn-secondary btn-lg" type="button" style="margin:5px; width: 140px" href="{{route('token.status',['id'=>$token->id,'status'=>'stop'])}}"><i class="fa fa-stop-circle" aria-hidden="true"></i>Stop</a>
-                <a class="btn btn-info btn-lg" type="button" style="margin:5px; width: 140px" href="{{route('token.process')}}"><i class="fa fa-google-wallet" aria-hidden="true"></i>Call Token</a>
               </div>
         </div>
     </div>
     </div>
 </div>
+@endsection
+
+@section('extraJs')
+<script type="text/javascript">
+    var myTimer;
+   function clock() {
+     myTimer = setInterval(myClock, 1000);
+     var c = 0;
+
+     function myClock() {
+       document.getElementById("demo").innerHTML = ++c;
+     }
+   }
+
+</script>
+
 @endsection

@@ -27,9 +27,18 @@ class CounterController extends Controller
             $counter->description=$request->description;
             $counter->status=$request->status;
             if($counter->save()){
-                return redirect()->back()->with('message','Product updated successfully');
+                $notification=array(
+                    'message'=>'Counter added successfully',
+                    'alert_type' =>'success'
+                );
+                return redirect()->back()->with($notification);
+            }else{
+                $notification=array(
+                    'message'=>'Failed to Add Counter',
+                    'alert_type' =>'danger'
+                );
+                return redirect()->back()->with($notification);
             }
-            return redirect()->back()->with('message','Error occurred');
         }
     public function edit(Request $request){
         $counter=Counter::find($request->id);
@@ -48,15 +57,35 @@ class CounterController extends Controller
         $counter->description = $request->description;
         $counter->status = $request->status;
         if ($counter->update()) {
-            return redirect()->route('counter.list')->with('message', 'Product updated successfully');
+            $notification=array(
+                'message'=>'Update Counter successfully',
+                'alert_type' =>'info'
+            );
+            return redirect()->route('counter.list')->with($notification);
+        }else{
+            $notification=array(
+                'message'=>'Failed to update Counter',
+                'alert_type' =>'danger'
+            );
+        return redirect()->back()->with($notification);
         }
-        return redirect()->route('counter.list')->with('message', 'Error occurred');
     }
+
+
     public function delete(Request $request){
         $counter=Counter::find($request->id);
         if($counter->delete()){
-            return redirect()->route('counter.list')->with('message','Department deleted successfully');
+            $notification=array(
+                'message'=>' Counter Deleted successfully',
+                'alert_type' =>'info'
+            );
+            return redirect()->back()->with($notification);
+        }else{
+            $notification=array(
+                'message'=>'Failed to delete Counter',
+                'alert_type' =>'danger'
+            );
+        return redirect()->back()->with($notification);
         }
-        return redirect()-route('counter.list')->with('message','Error occurred');
     }
 }

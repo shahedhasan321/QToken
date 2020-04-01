@@ -24,7 +24,7 @@
 </head>
 <body class="app">
     <header class="app-header">
-        <a class="app-header__logo" href="{{route('home')}}">QueueT</a>
+        <a class="app-header__logo" href="{{route('home')}}">QueueToken</a>
         <h1 style="color: rgb(3, 253, 253)">Token Display</h1>
     </header>
     <main class='app-display'>

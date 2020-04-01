@@ -46,6 +46,7 @@ class HomeController extends Controller
     {
         $this->counter=Counter::all();
         $this->dept=Department::all();
+        $this->token=Token::all()->where('status','pending');
         if(Auth::user()->role == 'admin'){
             $widgetsObj=new HomeController();
             return $widgetsObj->widgets();
@@ -56,7 +57,7 @@ class HomeController extends Controller
         }
 
         elseif(Auth::user()->role == 'staff'){
-            return view('staff.home',['counter'=>$this->counter,'department'=>$this->dept,'title'=>'Home Page']);
+            return view('staff.home',['token_list'=>$this->token,'counter'=>$this->counter,'department'=>$this->dept,'title'=>'Home Page']);
         }
     }
 

@@ -2,24 +2,14 @@
 @section('content')
 <div class="app-title">
     <div>
-        <h1><i class="fa fa-dashboard"></i> Token List</h1>
+        <h1><i class="fa fa-dashboard"></i> {{$title}}</h1>
         <p>Total Number of token including their information</p>
     </div>
     <ul class="app-breadcrumb breadcrumb">
         <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-        <li class="breadcrumb-item"><a href="#">Token /  TokenList</a></li>
+        <li class="breadcrumb-item"><a href="#">{{ Auth::user()->role }} /  {{$title}}</a></li>
     </ul>
     </div>
-    @if(Session::has('message'))
-        <div class="col-lg-12">
-            <div class="bs-component">
-                <div class="alert alert-dismissible alert-info">
-                    <i class="fa fa-thumbs-up" aria-hidden="true"></i>
-                    <span><b>{{ Session::get('message') }}</b></span>
-                </div>
-            </div>
-        </div>
-    @endif
     <div class="col-md-12">
         <div class="tile">
             <h3 class="tile-title">Token List</h3>
@@ -92,4 +82,30 @@
  <script type="text/javascript" src="{{asset('js/plugins/jquery.dataTables.min.js')}}"></script>
  <script type="text/javascript" src="{{asset('js/plugins/dataTables.bootstrap.min.js')}}"></script>
  <script type="text/javascript">$('#sampleTable').DataTable();</script>
+ <script type="text/javascript" src="{{asset('js/plugins/bootstrap-notify.min.js')}}"></script>
+ <script type="text/javascript">
+    @if(Session::has('message'))
+       var alertType = "{{Session::get('type')}}";
+       switch(alertType){
+           case 'info':
+           $.notify({
+               message: "{{Session::get('message')}}",
+               icon: 'fa fa-check'
+           },{
+               type: "info"
+           });
+           break;
+         case 'danger':
+           $.notify({
+               message: "{{Session::get('message')}}",
+               icon: 'fa fa-times-circle-o'
+           },{
+               type: "danger"
+           });
+           break;
+
+       }
+     @endif
+
+ </script>
 @endsection

@@ -1,18 +1,24 @@
 @extends('../../layouts/admin')
 @section('content')
-    @if(Session::has('message'))
-    <div class="col-lg-12">
-        <div class="bs-component">
-            <div class="alert alert-dismissible alert-success">
-                <i class="fa fa-thumbs-up" aria-hidden="true"></i>
-                <span><b>{{ Session::get('message') }}</b></span>
-            </div>
-        </div>
+<div class="app-title" >
+    <div>
+        <h1><i class="fa fa-bank"></i> Department </h1>
     </div>
-    @endif
+    <ul class="app-breadcrumb breadcrumb">
+        <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
+        <li class="breadcrumb-item"><a href="#">{{ Auth::user()->role }} /  Department</a></li>
+    </ul>
+</div>
     <div class="col-md-12">
         <div class="tile">
-            <h3 class="tile-title">Department List</h3>
+            <div class="row">
+                <div class="col-md-10">
+                    <h3 class="tile-title">Department List</h3>
+                </div>
+                <div class="col-md-2">
+                        <a class="btn btn-info" href="{{route('new.dept')}}"><i class="fa fa-lg fa-plus"></i>Add New</a>
+                </div>
+            </div>
             <div class="table-responsive">
             <table class="table">
                 <thead>
@@ -42,8 +48,8 @@
                     <td>{{$dept->created_at->format('d M')}}</td>
                     <td>{{$dept->updated_at->format('d M ')}}</td>
                     <td><div class="btn-group">
-                            <a class="btn btn-primary" href="{{route('edit.dept',['id'=>$dept->id])}}"><i class="fa fa-lg fa-edit"></i></a>
-                            <a class="btn btn-danger" href="{{route('delete.dept',['id'=>$dept->id])}}"><i class="fa fa-lg fa-trash"></i></a>
+                            <a class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="" data-original-title="Update" href="{{route('edit.dept',['id'=>$dept->id])}}"><i class="fa fa-lg fa-edit"></i></a>
+                            <a class="btn btn-danger"  data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"href="{{route('delete.dept',['id'=>$dept->id])}}"><i class="fa fa-lg fa-trash"></i></a>
                         </div>
                     </td>
                 </tr>
@@ -54,4 +60,35 @@
         </div>
     </div>
     <div class="clearfix"></div>
+@endsection
+
+
+@section('extraJs')
+    <script type="text/javascript" src="{{asset('js/plugins/bootstrap-notify.min.js')}}"></script>
+    <script type="text/javascript">
+    @if(Session::has('message'))
+      var alertType = "{{Session::get('alert_type')}}";
+      switch(alertType){
+      	case 'info':
+          $.notify({
+      		message: "{{Session::get('message')}}",
+      		icon: 'fa fa-check'
+      	},{
+      		type: "info"
+      	});
+          break;
+        case 'danger':
+          $.notify({
+      		message: "{{Session::get('message')}}",
+      		icon: 'fa fa-times-circle-o'
+      	},{
+      		type: "danger"
+      	});
+          break;
+
+      }
+    @endif
+    </script>
+
+
 @endsection

@@ -1,22 +1,28 @@
 @extends('../../layouts/admin')
 @section('content')
-    <div class="col-md-6">
+<div class="app-title" >
+    <div>
+        <h1><i class="fa fa-bank"></i> Department </h1>
+    </div>
+    <ul class="app-breadcrumb breadcrumb">
+        <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
+        <li class="breadcrumb-item"><a href="#">{{ Auth::user()->role }} /  Update Dept</a></li>
+    </ul>
+</div>
+    <div class="col-md-7">
         @if ($errors->any())
-            <div class="alert alert-danger">
+        <div class="bs-component">
+            <div class="alert alert-dismissible alert-danger">
                 <ul>
                     @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li>
                     @endforeach
                 </ul>
             </div>
+        </div>
         @endif
-        @if(Session::has('message'))
-                <div class="col-md-6 col-md-offset-2">
-                    <span> {{ Session::get('message') }}</span>
-                </div>
-            @endif
         <div class="tile">
-            <h3 class="tile-title">Register Department</h3>
+            <h3 class="tile-title">Update Department</h3>
             <div class="tile-body">
                 <form class="form-horizontal" action="{{route('update.dept',['id'=>$dept->id])}}" method="post" >
                     @csrf
@@ -51,7 +57,7 @@
                     <div class="tile-footer">
                         <div class="row">
                             <div class="col-md-8 col-md-offset-3">
-                                <button class="btn btn-info" type="submit"><i class="fa fa-fw fa-lg fa-check-circle"></i>Update</button>&nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-secondary" href="#"><i class="fa fa-fw fa-lg fa-times-circle"></i>Cancel</a>
+                                <button class="btn btn-info" type="submit"><i class="fa fa-fw fa-lg fa-check-circle"></i>Update</button>&nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-secondary" href="{{route('list.dept')}}"><i class="fa fa-fw fa-lg fa-times-circle"></i>Cancel</a>
                             </div>
                         </div>
                     </div>
@@ -60,4 +66,34 @@
 
         </div>
     </div>
+@endsection
+
+@section('extraJs')
+    <script type="text/javascript" src="{{asset('js/plugins/bootstrap-notify.min.js')}}"></script>
+    <script type="text/javascript">
+    @if(Session::has('message'))
+      var alertType = "{{Session::get('alert_type')}}";
+      switch(alertType){
+      	case 'success':
+          $.notify({
+      		message: "{{Session::get('message')}}",
+      		icon: 'fa fa-check'
+      	},{
+      		type: 'success'
+      	});
+          break;
+        case 'danger':
+          $.notify({
+      		message: "{{Session::get('message')}}",
+      		icon: 'fa fa-times-circle-o'
+      	},{
+      		type: "danger"
+      	});
+          break;
+
+      }
+    @endif
+    </script>
+
+
 @endsection

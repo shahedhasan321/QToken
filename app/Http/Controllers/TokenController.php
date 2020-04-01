@@ -52,9 +52,18 @@ class TokenController extends Controller
             $token->token_no="$token->dept_id"."$token->counter_no"."$token->client_id";
 
             if($token->save()){
-                return redirect()->back()->with('message','Token Added successfully');
+                $notification=array(
+                    'message'=>'Token Created successfully',
+                    'type' =>'success'
+                );
+                return redirect()->back()->with($notification);
+            }else{
+                $notification=array(
+                    'message'=>'Failed to Create Token',
+                    'type' =>'danger'
+                );
+            return redirect()->back()->with($notification);
             }
-            return redirect()-back()->with('message','Error occurred');
     }
 
     public function tokenList(){
@@ -72,13 +81,13 @@ class TokenController extends Controller
         $token =Token::all()->where('status','pending');
 
         if(Auth::user()->role=='admin')
-            return view('admin.token.currentToken',["token_list"=>$token,'title'=>'Current List']);
+            return view('admin.token.currentToken',["token_list"=>$token,'title'=>'Current Token List']);
 
         elseif(Auth::user()->role=='officer')
-            return view('officer.currentToken',["token_list"=>$token,'title'=>'Current List']);
+            return view('officer.currentToken',["token_list"=>$token,'title'=>'Current Token List']);
 
         elseif(Auth::user()->role=='staff')
-            return view('staff.currentToken',["token_list"=>$token,'title'=>'Current List']);
+            return view('staff.currentToken',["token_list"=>$token,'title'=>'Current Token List']);
     }
 
 
@@ -86,9 +95,18 @@ class TokenController extends Controller
         $token=Token::find($request->id);
         $token->status=$request->status;
         if($token->update()){
-            return redirect()->back()->with('message','Token Completed successfully');
+            $notification=array(
+                'message'=>'Token Completed successfully',
+                'type' =>'info'
+            );
+            return redirect()->back()->with($notification);
+        }else{
+            $notification=array(
+                'message'=>'Failed to Complete Token',
+                'type' =>'danger'
+            );
+        return redirect()->back()->with($notification);
         }
-        return redirect()-back()->with('message','Error occurred');
 
     }
 
@@ -96,14 +114,31 @@ class TokenController extends Controller
     public function tokenDelete(Request $request){
         $token=Token::find($request->id);
         if($token->delete()){
-            return redirect()->back()->with('message','Token deleted successfully');
+            $notification=array(
+                'message'=>'Token Deleted successfully',
+                'type' =>'info'
+            );
+            return redirect()->back()->with($notification);
+        }else{
+            $notification=array(
+                'message'=>'Failed to Delete Token',
+                'type' =>'danger'
+            );
+        return redirect()->back()->with($notification);
         }
-        return redirect()-back()->with('message','Error occurred');
     }
 
-    public function callToken(){
+    public function autoCall(){
         $token=Token::where('status','pending')->first();
-        return view('Officer.tokenProcess',["token"=>$token,'title'=>'Token Process']);
+        if($token==null)
+            return redirect()->back()->with('message','There is no pending token');
+        else
+            return view('Officer.tokenProcess',["token"=>$token,'title'=>'Token Process']);
+    }
+
+    public function manualCall(Request $request){
+        $token=Token::find($request->id);
+            return view('Officer.tokenProcess',["token"=>$token,'title'=>'Token Process']);
     }
 
 }

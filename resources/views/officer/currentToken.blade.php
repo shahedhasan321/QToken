@@ -2,12 +2,12 @@
 @section('content')
 <div class="app-title">
     <div>
-        <h1><i class="fa fa-dashboard"></i> Token List</h1>
+        <h1><i class="fa fa-dashboard"></i> {{$title}}</h1>
         <p>Total Number of token including their information</p>
     </div>
     <ul class="app-breadcrumb breadcrumb">
         <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-        <li class="breadcrumb-item"><a href="#">Token /  TokenList</a></li>
+        <li class="breadcrumb-item"><a href="#">{{ Auth::user()->role }} /  {{$title}}</a></li>
     </ul>
     </div>
     @if(Session::has('message'))
@@ -35,6 +35,7 @@
                     <th>Client Mobile No</th>
                     <th>Token Status</th>
                     <th>Created_At</th>
+                    <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -55,6 +56,11 @@
                             @endif
                         </td>
                         <td>{{$token->created_at->format('d M')}}<br>{{$token->created_at->format('h:i a')}}</td>
+                        <td>
+                            <a href="{{route('call.manual',['id'=>$token->id])}}">
+                                <button class="btn btn-primary btn-sm" type="button">Select</button>
+                            </a>
+                        </td>
                     </tr>
                     @php
                     $count++;

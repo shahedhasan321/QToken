@@ -1,6 +1,6 @@
 @extends('layouts/staff')
 @section('content')
-  <div class="app-title">
+<div class="app-title">
     <div>
         <h1><i class="fa fa-dashboard"></i> {{$title}}</h1>
     </div>
@@ -13,11 +13,11 @@
         <div class="page-header">
             <div class="row">
                 <div class="col-lg-12">
-                <h2 class="mb-3 line-head" id="buttons"> Create New Token</h2>
+                <h1 class="mb-3 line-head" id="buttons"> Create New Token</h1>
                 </div>
 
                 <div class="col-lg-3 col-md-6" >
-                    <p class="bs-component" style="margin: 25px">
+                    <p class="bs-component" style="margin: 15px">
                         <a data-toggle="modal" data-target="#modalRegisterForm">
                             <button class="btn btn-info btn-ex-lg" type="button"><i class="fa fa-slack" aria-hidden="true" style="font-size:50px"></i><br> Manual Token</button>
                         </a>
@@ -25,7 +25,7 @@
                 </div>
 
                 <div class="col-lg-3 col-md-6">
-                    <p class="bs-component" style="margin: 25px">
+                    <p class="bs-component" style="margin: 15px">
                         <a href="#">
                             <button class="btn btn-primary btn-ex-lg" type="button"><i class="fa fa-paper-plane" aria-hidden="true" style="font-size:50px"></i><br>  Auto Token  </button>
                         </a>
@@ -33,7 +33,7 @@
                 </div>
 
                 <div class="col-lg-3 col-md-6">
-                    <p class="bs-component" style="margin: 25px">
+                    <p class="bs-component" style="margin: 15px">
                         <a href="{{route('current.list')}}">
                             <button class="btn btn-danger btn-ex-lg" type="button"><i class="fa fa-list" aria-hidden="true" style="font-size:50px"></i><br>  Token List  </button>
                         </a>
@@ -41,16 +41,58 @@
                 </div>
 
                 <div class="col-lg-3 col-md-6">
-                    <p class="bs-component" style="margin: 25px">
+                    <p class="bs-component" style="margin: 15px 20px 90px 15px">
                         <a href="{{route('token.display')}}">
                             <button class="btn btn-secondary btn-ex-lg" type="button"><i class="fa fa-television" aria-hidden="true" style="font-size:50px"></i><br>  Display  </button>
                         </a>
                     </p>
                 </div>
+
             </div>
         </div>
+
+ <!----------current Token ----------->
+        <h3 class="tile-title">Current Token List</h3>
+        <div class="table-responsive">
+        <table class="table">
+            <thead>
+            <tr>
+                <th><h4>ID</h4></th>
+                <th><h4>Token No</h4></th>
+                <th><h4>Dept</h4></th>
+                <th><h4>Counter No</h4></th>
+                <th><h4>Token Status</h4></th>
+                <th><h4>Created_At</h4></th>
+                <th><h4>Action</h4></th>
+            </tr>
+            </thead>
+            <tbody>
+            @php
+            $count=1;
+            @endphp
+            @foreach($token_list as $token)
+                <tr class="table-success">
+                    <td><h5>{{$count}}</h5></td>
+                    <td><h5>{{$token->token_no}}</h5></td>
+                    <td><h5>{{$token->department->name}}</h5></td>
+                    <td><h5>{{$token->counter->counter_no}}</h5></td>
+                    <td>
+                        @if($token->status=='pending')
+                             <span class="badge badge-pill badge-warning">{{$token->status}}</span>
+                        @endif
+                    </td>
+                    <td><h6>{{$token->created_at->format('d M')}}<br>{{$token->created_at->format('h:i a')}}</h6></td>
+                    <td><button class="btn btn-info" onclick="printpage('print')"><i class="fa fa-fw fa-lg fa-print"></i>Print</button></td>
+                </tr>
+                @php
+                $count++;
+                @endphp
+            @endforeach
+            </tbody>
+        </table>
     </div>
- </div>
+</div>
+
 <!------token Create ----------->
     <div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -116,4 +158,18 @@
     </div>
   </div>
 </div>
+
+@endsection
+
+@section('extraJs')
+<script type="text/javascript">
+    function printpage(print_div)
+    {
+    var printButton = document.getElementById("print");
+    printButton.style.visibility = 'hidden';
+    window.print()
+     printButton.style.visibility = 'visible';
+     }
+</script>
+
 @endsection

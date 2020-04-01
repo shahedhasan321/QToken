@@ -28,9 +28,20 @@ class DeptController extends Controller
         $dept->description=$request->description;
         $dept->status=$request->status;
         if($dept->save()){
-            return redirect()->back()->with('message','Product updated successfully');
+            $notification=array(
+                'message'=>'Department added successfully',
+                'alert_type' =>'success'
+            );
+            return redirect()->back()->with($notification);
+
+        }else{
+            $notification=array(
+                'message'=>'Failed to Add Department',
+                'alert_type' =>'danger'
+            );
+            return redirect()->back()->with($notification);
         }
-        return redirect()->back()->with('message','Error occurred');
+
     }
 
     public function edit(Request $request){
@@ -50,16 +61,34 @@ class DeptController extends Controller
         $dept->description=$request->description;
         $dept->status=$request->status;
         if($dept->update()){
-            return redirect()->route('list.dept')->with('message','Product updated successfully');
+            $notification=array(
+                'message'=>'Update department successfully',
+                'alert_type' =>'info'
+            );
+            return redirect()->route('list.dept')->with($notification);
+        }else{
+            $notification=array(
+                'message'=>'Failed to update Department',
+                'alert_type' =>'danger'
+            );
+        return redirect()->back()->with($notification);
         }
-        return redirect()->route('list.dept')->with('message','Error occurred');
     }
 
     public function delete(Request $request){
         $dept=Department::find($request->id);
         if($dept->delete()){
-            return redirect()->back()->with('message','Department deleted successfully');
+            $notification=array(
+                'message'=>' Department Deleted successfully',
+                'alert_type' =>'info'
+            );
+            return redirect()->back()->with($notification);
+        }else{
+            $notification=array(
+                'message'=>'Failed to delete Department',
+                'alert_type' =>'danger'
+            );
+        return redirect()->back()->with($notification);
         }
-        return redirect()-back()->with('message','Error occurred');
     }
 }

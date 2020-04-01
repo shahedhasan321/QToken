@@ -4,7 +4,7 @@
 
 <section class="login-content">
     <div class="logo">
-      <h1>QueueT</h1>
+      <h1>QueueToken</h1>
     </div>
     <div class="login-box">
       <form class="login-form" action="{{ route('login') }}" method="POST">

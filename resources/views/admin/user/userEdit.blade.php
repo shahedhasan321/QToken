@@ -1,5 +1,14 @@
 @extends('../../layouts/admin')
 @section('content')
+<div class="app-title">
+    <div>
+        <h1><i class="fa fa-dashboard"></i>User</h1>
+    </div>
+    <ul class="app-breadcrumb breadcrumb">
+        <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
+        <li class="breadcrumb-item"><a href="#">{{ Auth::user()->role }} /  Add User</a></li>
+    </ul>
+    </div>
     <div class="col-md-6">
         @if ($errors->any())
             <div class="alert alert-danger">
@@ -60,4 +69,5 @@
 
         </div>
     </div>
+</div>
 @endsection

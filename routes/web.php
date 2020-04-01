@@ -60,27 +60,27 @@ Route::middleware(['auth'])->group(function () {
     });
 
 
-        Route::middleware(['officer'])->group(function () {
-            Route::prefix('token')->group(function () {
-                Route::get('/list', 'TokenController@tokenList')->name('token.list');
-                Route::get('/complete', 'TokenController@tokenStatusUpdate')->name('token.status');
-                Route::get('/delete', 'TokenController@tokenDelete')->name('token.delete');
-                Route::get('/processing','TokenController@callToken')->name('token.process');
+    Route::middleware(['officer'])->group(function () {
+        Route::prefix('token')->group(function () {
+            Route::get('/list', 'TokenController@tokenList')->name('token.list');
+            Route::get('/complete', 'TokenController@tokenStatusUpdate')->name('token.status');
+            Route::get('/manual/call{id}','TokenController@manualCall')->name('call.manual');
+            Route::get('/auto/call','TokenController@autoCall')->name('call.auto');
+            Route::get('/current/token', 'TokenController@currentList')->name('current.token');
 
-            });
         });
+    });
 
 
-        Route::middleware(['staff'])->group(function () {
-            Route::prefix('token')->group(function () {
-                Route::get('/auto', 'TokenController@autoToken')->name('token.auto');
-                Route::post('/store', 'TokenController@storeToken')->name('token.store');
-            });
+    Route::middleware(['staff'])->group(function () {
+        Route::prefix('token')->group(function () {
+            Route::get('/auto', 'TokenController@autoToken')->name('token.auto');
+            Route::post('/store', 'TokenController@storeToken')->name('token.store');
         });
+    });
 
-
-        Route::get('/token/current/list', 'TokenController@currentList')->name('current.list');
-        Route::get('/display','Admin\DisplayController@index')->name('token.display');
+    Route::get('/token/current/list', 'TokenController@currentList')->name('current.list');
+    Route::get('/display','Admin\DisplayController@index')->name('token.display');
 });
 
 Auth::routes(['register' => false]);
